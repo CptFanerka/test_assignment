@@ -27,7 +27,7 @@ C:\Users\Nerka\Documents\flask_app>env\Scripts\activate
 ```
 (env) C:\Users\Nerka\Documents\flask_app>pip install flask
 ``` 
-3. Поместите файлы приложения в созданную папку.
+3. Поместите файлы приложения в созданную папку (flask_app).
 4. Запустите приложение:
 ```
 (env) C:\Users\Nerka\Documents\flask_app>run flask

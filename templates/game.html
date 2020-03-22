@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>На работу!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+		.bg-color {
+		background-color: #f5f5f5;
+		}
+		.card {
+			overflow: auto;
+		}
+
+		.name {
+			position: sticky;
+			top: 5px;
+			border-radius: 3px;
+			background-color: #f5f5f5;
+		}
+
+
+
+    </style>
+</head>
+<div class="bg-color">
+    <body>
+    <div class="container" align="center">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-body">
+                        {% if currentStage %}
+                        <h4 class="name">{{ currentStage['name'] }}</h4>
+                        <label>{{ currentStage['body'] }}
+                            {% if nextStagesCodes|length != 0 %}
+                            <hr>
+                            <form action="/game/running" method="POST">
+                                <div>
+                                    {% for i in range(nextStagesCodes|length) %}
+                                    <input type="radio" id="way"
+                                           name="way" value="{{ nextStagesCodes[i] }}" checked>
+                                    <label for="way">--> {{ nextStagesNames[i] }}</label>
+                                    <br>
+                                    {% endfor %}
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-light">Выбрать</button>
+                                </div>
+                            </form>
+                            <hr>
+                            {% endif %}
+                        </label>
+                        {% endif %}
+                    </div>
+                </div>
+                <nav class="navbar navbar-light bg-faded">
+                    <a class="navbar-brand" href="/">Вернуться в меню</a>
+                    <a class="navbar-brand" href="/restart">Начать сначала</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </body>
+</div>
+</html>

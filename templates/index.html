@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>На работу!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.bg-color {
+		background-color: #f5f5f5;
+		}
+    </style>
+</head>
+<div class="bg-color">
+	<body>
+		<div class="container" align="center">
+			<div class="row justify-content-center align-items-center" style="height:100vh">
+				<div class="col-10">
+					<div class="card">
+						<div class="card-body">
+							<div>
+								<label><h2>Добро пожаловать!</h2>
+								{% if session['username'] %}
+								<h6>Ваш профиль: {{session['username']}}</h6>
+								{% else %}
+								<h6>Войдите в профиль</h6>
+								{% endif %}</label>
+							</div>
+							{% if session['username'] %}
+							<a href="/game" class="btn btn-success">Запустить игру</a>
+							<a href="/logout" class="btn btn-warning">Выйти из профиля</a>
+							{% else %}
+							<a href="/login" class="btn btn-success">Войти</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</div>
+</html>
